@@ -22,6 +22,13 @@ export const config = {
     subtitle: '最高2000优惠（以当天为准）',
     shareText:
       '分享送好礼最高2000优惠（以当天为准）。\n\n贵阳商务KTV订房-王澳\n微信：Gyyule\n电话：18990141870\n\n点开链接可直接咨询：',
+    /**
+     * 弹窗里的二维码：`public` 目录下的文件名，例如 `wechat-qr.JPG` 或 `share-modal-qr.png`。
+     * 改成 `null` 则二维码为「当前页面链接」（自动生成）。
+     */
+    modalQrImage: 'share-wecom-qr.png' as string | null,
+    /** 使用 `modalQrImage` 时，二维码下方这行字 */
+    modalQrHint: '扫一扫添加企业微信',
   },
 
   hero: {

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import QRCode from 'qrcode'
 import { config } from '../config'
+import { publicUrl } from '../lib/publicUrl'
 import styles from './ShareModal.module.css'
 
 function useShareQrDataUrl(open: boolean, url: string) {
@@ -63,7 +64,14 @@ export function ShareModal({
     return () => window.removeEventListener('keydown', onKey)
   }, [open, onClose])
 
-  const qr = useShareQrDataUrl(open, url)
+  const staticQrPath = config.shareReward.modalQrImage
+  const staticQrSrc = staticQrPath ? publicUrl(staticQrPath) : null
+  const dynamicQr = useShareQrDataUrl(open, url)
+  const qrSrc = staticQrSrc ?? dynamicQr
+  const qrHint = staticQrSrc
+    ? (config.shareReward.modalQrHint ?? '扫一扫添加微信')
+    : '扫一扫也能打开链接'
+
   if (!open) return null
 
   return (
@@ -80,8 +88,8 @@ export function ShareModal({
 
         <div className={styles.body}>
           <div className={styles.qrBox}>
-            {qr ? <img className={styles.qr} src={qr} alt="分享二维码" /> : <div className={styles.qrSkel} />}
-            <div className={styles.qrHint}>扫一扫也能打开链接</div>
+            {qrSrc ? <img className={styles.qr} src={qrSrc} alt="分享二维码" /> : <div className={styles.qrSkel} />}
+            <div className={styles.qrHint}>{qrHint}</div>
           </div>
 
           <div className={styles.tips}>
