@@ -29,6 +29,11 @@ export const config = {
     modalQrImage: 'share-wecom-qr.png' as string | null,
     /** 使用 `modalQrImage` 时，二维码下方这行字 */
     modalQrHint: '扫一扫添加微信',
+    /**
+     * 每次更换 `public` 里对应二维码图后，把这里改成新字符串（如加 1），
+     * 否则微信/浏览器/CDN 会一直用旧的同名图片缓存。
+     */
+    modalQrCacheBust: '3',
   },
 
   hero: {

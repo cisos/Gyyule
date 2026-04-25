@@ -65,7 +65,10 @@ export function ShareModal({
   }, [open, onClose])
 
   const staticQrPath = config.shareReward.modalQrImage
-  const staticQrSrc = staticQrPath ? publicUrl(staticQrPath) : null
+  const qrBust = config.shareReward.modalQrCacheBust ?? '1'
+  const staticQrSrc = staticQrPath
+    ? `${publicUrl(staticQrPath)}?v=${encodeURIComponent(String(qrBust))}`
+    : null
   const dynamicQr = useShareQrDataUrl(open, url)
   const qrSrc = staticQrSrc ?? dynamicQr
   const qrHint = staticQrSrc
@@ -88,7 +91,11 @@ export function ShareModal({
 
         <div className={styles.body}>
           <div className={styles.qrBox}>
-            {qrSrc ? <img className={styles.qr} src={qrSrc} alt="分享二维码" /> : <div className={styles.qrSkel} />}
+            {qrSrc ? (
+              <img key={qrSrc} className={styles.qr} src={qrSrc} alt="分享二维码" />
+            ) : (
+              <div className={styles.qrSkel} />
+            )}
             <div className={styles.qrHint}>{qrHint}</div>
           </div>
 
