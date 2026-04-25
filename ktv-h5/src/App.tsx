@@ -27,6 +27,7 @@ function App() {
   const shareUrl = useMemo(() => window.location.href, [])
 
   useEffect(() => {
+    document.title = config.share.title
     track('page_view', { title: config.share.title })
   }, [])
 

@@ -28,7 +28,7 @@ export const config = {
      */
     modalQrImage: 'share-wecom-qr.png' as string | null,
     /** 使用 `modalQrImage` 时，二维码下方这行字 */
-    modalQrHint: '扫一扫添加企业微信',
+    modalQrHint: '扫一扫添加微信',
   },
 
   hero: {
