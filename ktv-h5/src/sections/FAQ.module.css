@@ -1,0 +1,62 @@
+.wrap{
+  padding: 10px 16px 8px;
+}
+
+.inner{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.head{ margin: 8px 0 10px; }
+.title{
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(255,255,255,.92);
+}
+
+.list{
+  display:grid;
+  gap: 10px;
+}
+
+.item{
+  text-align:left;
+  border-radius: 18px;
+  padding: 12px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.90);
+}
+
+.qRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+}
+
+.q{
+  font-weight: 900;
+  font-size: 14px;
+  color: rgba(235,225,255,.92);
+}
+
+.chev{
+  width: 28px;
+  height: 28px;
+  display:grid;
+  place-items:center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.86);
+  font-weight: 900;
+}
+
+.a{
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,.70);
+  line-height: 1.5;
+}
+
