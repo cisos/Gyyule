@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { config } from '../config'
 import { Img } from '../components/Img.tsx'
+import { publicUrl } from '../lib/publicUrl'
 import styles from './Gallery.module.css'
 
 function pickRandom<T>(arr: T[], n: number) {
@@ -26,7 +27,7 @@ export function Gallery() {
         </div>
         <div className={styles.grid}>
           {imgs.map((src) => (
-            <Img key={src} className={styles.img} src={src} alt="相册图片" />
+            <Img key={src} className={styles.img} src={publicUrl(src)} alt="相册图片" />
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import QRCode from 'qrcode'
 import { config } from '../config'
+import { publicUrl } from './publicUrl'
 
 export type PosterResult = {
   blob: Blob
@@ -20,13 +21,13 @@ async function loadImage(src: string): Promise<HTMLImageElement> {
 
 async function getWechatQrImage(): Promise<HTMLImageElement> {
   try {
-    return await loadImage('/wechat-qr.png')
+    return await loadImage(publicUrl('wechat-qr.png'))
   } catch {
     try {
-      return await loadImage('/wechat-qr.jpg')
+      return await loadImage(publicUrl('wechat-qr.jpg'))
     } catch {
       try {
-        return await loadImage('/wechat-qr.JPG')
+        return await loadImage(publicUrl('wechat-qr.JPG'))
       } catch {
         const dataUrl = await QRCode.toDataURL(config.wechatId, {
           margin: 1,
