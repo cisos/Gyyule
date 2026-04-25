@@ -4,7 +4,7 @@
 
 ### 线上地址
 
-`https://hengdaguanwang.github.io/Gyyule/`（路径需带 **`/Gyyule/`**，与 `ktv-h5/vite.config.ts` 里的 `base` 一致。）
+`https://cisos.github.io/Gyyule/`（路径需带 **`/Gyyule/`**，与 `ktv-h5/vite.config.ts` 里的 `base` 一致。）
 
 ### 发布方式（二选一）
 
